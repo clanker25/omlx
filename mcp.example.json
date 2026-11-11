@@ -1,0 +1,26 @@
+{
+  "servers": {
+    "filesystem": {
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"],
+      "enabled": false,
+      "timeout": 40
+    },
+    "sqlite": {
+      "transport": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-sqlite", "--db-path", "data.db"],
+      "enabled": false,
+      "timeout": 30
+    },
+    "web-search": {
+      "transport": "sse",
+      "url": "http://localhost:3001/sse",
+      "enabled": true,
+      "timeout": 70
+    }
+  },
+  "max_tool_calls": 10,
+  "default_timeout": 40.0
+}
